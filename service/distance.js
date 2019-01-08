@@ -1,13 +1,9 @@
 const request = require("request");
 
-const apiKey = process.env.PORT;
-const endpointURL = "https://www.zipcodeapi.com/rest";
-console.log(process.env);
+const apiKey = process.env.ZIPCODE_API_KEY;
 const distance = {
     get: function(req, res, next) {
-        // console.log(req.params);
-
-        let callURL = `${endpointURL}/${apiKey}/distance.json/${
+        let callURL = `https://www.zipcodeapi.com/rest/${apiKey}/distance.json/${
             req.params.zipcode1
         }/${req.params.zipcode2}/mile`;
         request(callURL, function(error, response, body) {
