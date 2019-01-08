@@ -1,9 +1,10 @@
-var express = require("express");
-var routes = require("./api/routes");
+const express = require("express");
+const routes = require("./api/route");
+require("dotenv").config();
 
-var port = process.env.PORT || 3000;
+const port = process.env.PORT;
 
-var app = express();
+const app = express();
 routes(app);
 
 app.listen(port, () => {
